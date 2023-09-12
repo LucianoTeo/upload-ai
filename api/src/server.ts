@@ -1,10 +1,11 @@
 import {  fastify } from 'fastify';
+import { getAllPromptsRoute } from './routes/get-all-prompts';
+import { uploadAudioRoute } from './routes/upload-audio';
 
 const app = fastify()
 
-app.get('/', () => {
-  return 'Helo World'
-})
+app.register(getAllPromptsRoute)
+app.register(uploadAudioRoute)
 
 app.listen({
   port: 3333,
